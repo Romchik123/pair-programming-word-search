@@ -6,10 +6,16 @@ const wordSearch = (letters, word) => {
   for (let l of horizontalJoin) {
     if (l.includes(word)) return true;
   }
+  const vartical = varticalJoin(letters);
+  const varticalArray = vartical.map((ls) => ls.join(""));
+  for (let l of varticalArray) {
+    if (l.includes(word)) return true;
+  }
   return false;
 };
 
-const varticalJoint = function(letters, word) {
+//helper
+const varticalJoin = function(letters) {
   let newLetters = [];
   for (let row = 0; row < letters[0].length; row++) {
     let newRow = [];
@@ -18,12 +24,7 @@ const varticalJoint = function(letters, word) {
     }
     newLetters.push(newRow);
   }
-
-  const varticalArray = newLetters.map((ls) => ls.join(""));
-  for (let l of varticalArray) {
-    if (l.includes(word)) return true;
-  }
-  return false;
+  return newLetters;
 };
 
-module.exports = { wordSearch, varticalJoint };
+module.exports = wordSearch;

@@ -14,7 +14,6 @@ const wordSearch = (letters, word) => {
   return false;
 };
 
-//helper
 const varticalJoin = function(letters) {
   let newLetters = [];
   for (let row = 0; row < letters[0].length; row++) {
